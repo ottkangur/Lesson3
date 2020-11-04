@@ -104,10 +104,10 @@ public class Lesson3 {
         }
         String reverse = word.toString();
         String b;
-        for (int i = 0; i < a.length(); i++){
-            b += a.substring(a.length()-i-1);
-            System.out.println(b);
-        }
+        //for (int i = 0; i < a.length(); i++){
+            //b += a.substring(a.length()-i-1);
+           // System.out.println(b);
+        //}
             //System.out.println(Arrays.toString(word));
 
         //System.out.println(a.substring(0, 1));
