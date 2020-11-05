@@ -97,13 +97,13 @@ public class Lesson3 {
         // String[] word = new String[a.length()];
         StringBuilder word = new StringBuilder(); //StringBuilderile saab tähti juurde lisada
         for (int i = 0; i < a.length(); i++) {
-                word.append(a, a.length() - i - 1, a.length() - i);
+                word.append(a.substring(a.length() - i - 1, a.length() - i)); //sama ,mis word.append(a, a.length() - i - 1, a.length() - i)
                 //word[i] = a.substring(a.length()-i-1, a.length()-i);
                 //System.out.println(word);
             //}
         }
         String reverse = word.toString();
-        String b;
+        //String b;
         //for (int i = 0; i < a.length(); i++){
             //b += a.substring(a.length()-i-1);
            // System.out.println(b);
@@ -116,7 +116,7 @@ public class Lesson3 {
         //System.out.println(a.substring(3, 4));
         //System.out.println(a.substring(2, 4));
         //System.out.println(a.substring(2));
-        //String[] array = a.split("ka");
+        String[] array = a.split("ka");
         //System.out.println(array);
         //System.out.println(array[0]);
         //System.out.println(array[1]);
