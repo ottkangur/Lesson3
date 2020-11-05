@@ -1,70 +1,29 @@
 package com.company;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Lesson2 {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
 
         //ex1
-        // exercise1();
+        exercise1();
         System.out.println();
 
         //ex2
-        //exercise2(3);
+        exercise2(3);
         System.out.println();
         System.out.println();
 
         //ex3
-        //exercise3(3,3);
+        exercise3(3,3);
         System.out.println();
 
         //ex4
-        //System.out.println(fibonacci(12));
-        System.out.println();
+        System.out.println(fibonacci(12));
 
-        //ex5
-
-        //ex6
-        exercise6();
-        /**List<String> words = new ArrayList<String>();
-        words.add("ab5"); //3
-        words.add("cd1"); //2
-        words.add("ef4"); //4
-        words.add("gh2"); //1
-        List<Integer> nr = new ArrayList<Integer>();
-        nr.add(5);
-        nr.add(1);
-        nr.add(4);
-        nr.add(2);
-        System.out.println(words);
-        for (int i = 0; i < words.size(); i++) {
-            String temp;
-            int min = nr.get(i);
-            for (int j = 0 + i; j < nr.size(); j++) {
-                if (nr.get(j) < nr.get(i)) {
-                    temp = words.get(j);
-                    min = nr.get(j);
-                    words.remove(j);
-                    nr.remove(j);
-                    System.out.println(words);
-                    System.out.println(nr);
-                    words.add(i, temp);
-                    nr.add(i, min);
-                    System.out.println(words);
-                    System.out.println(nr);
-                }
-            }
-        }
-        System.out.println(words);*/
     }
 
     public static void exercise1() {
@@ -121,11 +80,11 @@ public class Lesson2 {
         int b = 1;
         int c = 0;
         //int[] jada = new int[n];
-        if (n == 1) {
+        if (n == 1){
             return a;
-        } else if (n == 2) {
+        } else if (n == 2){
             return b;
-        } else {
+        }else {
             for (int i = 2; i < n; i++) {
                 c = a + b;
                 a = b;
@@ -143,66 +102,13 @@ public class Lesson2 {
 
     }
 
-    public static void exercise6() throws FileNotFoundException {
+    public static void exercise6() {
         /*
             Kirjutada Java programm, mis loeb failist visits.txt sisse looduspargi külastajad erinevatel jaanuari päevadel ning
             a) sorteerib külastuspäevad külastajate arvu järgi kasvavalt ning prindib tulemuse konsoolile;
             b) prindib konsoolile päeva, mil külastajaid oli kõige rohkem.
             Faili asukoht tuleb programmile ette anda käsurea parameetrina.
          */
-
-        File file = new File("visits.txt");
-        Scanner scanner = new Scanner(file);
-        List<String[]> visits = new ArrayList<>();
-        List<Integer> count = new ArrayList<>();
-        List<String> date = new ArrayList<>();
-        while (scanner.hasNext()) {
-            String visit = scanner.nextLine();
-            String[] visitArr = visit.split(", ");
-            visits.add(visitArr);           //list, kus üks rida on array, kus kpv ja külastajate nr omakorda Stringina
-            count.add(Integer.parseInt(visitArr[1]));   //list, kus on kõik külastajate nrd
-        }
-        //System.out.println(count);
-        for (int i = 0; i < visits.size(); i++) {
-            String[] temp;
-            int min;
-            for (int j = 0 + i; j < count.size(); j++) {
-                if (count.get(j) < count.get(i)) {
-                    temp = visits.get(j);
-                    min = count.get(j);
-                    visits.remove(j);
-                    count.remove(j);
-                    visits.add(i, temp);
-                    count.add(i, min);
-                }
-            }
-        }
-        for (int i = 0; i < visits.size(); i++){
-            date.add(visits.get(i)[0]);     //list, kus on kpv-d ümberjärjestatult
-        }
-        //System.out.println(count);
-        System.out.println(date);
-        System.out.println();
-        System.out.println("Kõige rohkem käis külastajaid " + date.get(date.size()-1));
-
-        //String a = "dfg gdfg 232";
-        //String[] b = a.split(" ");
-        //System.out.println(b[0]);
-        //System.out.println(b[1].trim());    //eemaldab kõik white-space'd (tühikud)
-        //Visit visit = new Visit("visits.txt");
-
-        //visits.sort(new Comparator<Visit>()){
-        //  public int compare(visit 1, visit 2){
-        //      return 0;
-        //  }
-        //}
-
-        //b1 = 1;
-        //b2 = 2;
-        //if(b1.compareTo(b2) < 0){
-        //  System.out.println("true");
-        //}
-        //output: -1; true
     }
 
     public static void exercise7() {
@@ -230,6 +136,5 @@ public class Lesson2 {
         Sama mis eelmises ülesandes aga ära kasuta BigInt ega BigDecimal klassi
          */
     }
-
 
 }
