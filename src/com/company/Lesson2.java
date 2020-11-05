@@ -1,7 +1,11 @@
 package com.company;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Lesson2 {
@@ -98,17 +102,69 @@ public class Lesson2 {
 
     public static void exercise5(int n) {
         // https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=36
+
         System.out.println(n);
 
     }
 
-    public static void exercise6() {
+    public static void exercise6() throws FileNotFoundException {
         /*
             Kirjutada Java programm, mis loeb failist visits.txt sisse looduspargi külastajad erinevatel jaanuari päevadel ning
             a) sorteerib külastuspäevad külastajate arvu järgi kasvavalt ning prindib tulemuse konsoolile;
             b) prindib konsoolile päeva, mil külastajaid oli kõige rohkem.
             Faili asukoht tuleb programmile ette anda käsurea parameetrina.
          */
+
+        //String a = "dfg gdfg 232";
+        //String[] b = a.split(" ");
+        //System.out.println(b[0]);
+        //System.out.println(b[1].trim());    //eemaldab kõik white-space'd (tühikud)
+        //Visit visit = new Visit("visits.txt");
+        File file = new File("visits.txt");
+        Scanner scanner = new Scanner(file);
+        List<String[]> visits = new ArrayList<>();
+        List<Integer> count = new ArrayList<>();
+        List<String> date = new ArrayList<>();
+        while (scanner.hasNext()) {
+            String visit = scanner.nextLine();
+            String[] visitArr = visit.split(", ");
+            visits.add(visitArr);           //list, kus üks rida on array, kus kpv ja külastajate nr omakorda Stringina
+            count.add(Integer.parseInt(visitArr[1]));   //list, kus on kõik külastajate nrd
+        }
+        //System.out.println(count);
+        for (int i = 0; i < visits.size(); i++) {
+            String[] temp;
+            int min;
+            for (int j = 0 + i; j < count.size(); j++) {
+                if (count.get(j) < count.get(i)) {
+                    temp = visits.get(j);
+                    min = count.get(j);
+                    visits.remove(j);
+                    count.remove(j);
+                    visits.add(i, temp);
+                    count.add(i, min);
+                }
+            }
+        }
+        for (int i = 0; i < visits.size(); i++){
+            date.add(visits.get(i)[0]);     //list, kus on kpv-d ümberjärjestatult
+        }
+        //System.out.println(count);
+        System.out.println(date);
+        System.out.println("Kõige rohkem käis külastajaid " + date.get(date.size()-1));
+
+        //visits.sort(new Comparator<Visit>()){
+        //public int compare(visit 1, visit 2){
+        //return 0;
+        //}
+        //}
+
+        //b1 = 1;
+        //b2 = 2;
+        //if(b1.compareTo(b2) < 0){
+        //System.out.println("true");
+        //output: -1; true
+//}
     }
 
     public static void exercise7() {
